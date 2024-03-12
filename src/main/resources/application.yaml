@@ -1,0 +1,16 @@
+server:
+  port: 9092
+spring:
+  application:
+    name: 'customer service'
+  datasource:
+    url: jdbc:postgresql://localhost:5432/clients
+    username: manager
+    password: manager
+  liquibase:
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    default-schema: public
+    liquibase-schema: public
+    change-log: classpath:db/changelog/db.changelog-master.xml
